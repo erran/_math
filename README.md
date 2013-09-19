@@ -10,20 +10,21 @@ creating methods to handle some of these use cases.
 ## ∞ (Infinity)
 ```ruby
 ∞ == Float::INFINITY # => true
+-∞ == -Float::INFINITY # => true
 ```
 
 ## π (Pi)
+`Math::PI` defaults to 15 decimals of precision.
 ```ruby
-# Math::PI defaults to 15 decimals of precision
 π == Math::PI # => true
 π(12) == Math::PI # => false
 ```
 
 ## ∑ (capital sigma)
 ```ruby
-# Parenthesis and hard brackets are both available
 ∑(1, 2, 3) # => 6.0
 ∑[4.0, 5.0, 6.0] # => 15.0
+∑[√(64 / 4), (12 * 2)] # => 28.0
 ```
 
 ### Standard summation vs. summation with an index of summation
@@ -33,8 +34,7 @@ You're probably asking why not just use `.inject(:+)`? Well, the answer's in the
 ![](http://upload.wikimedia.org/math/5/c/0/5c0ac9b6f171fe789dad82e829050e62.png)
 
 ### Summation with iteration in Ruby
-#### Human friendly:
-Using math you can pass a 3 argument version of the sigma method where you give
+Using _math you can pass a 3 argument version of the sigma method where you give
 the lower summation limit, upper summation limit, and a lambda/proc that takes
 one argument and returns the result as a numeric class.
 
@@ -47,26 +47,14 @@ one argument and returns the result as a numeric class.
 ∑(1, 5, ->(i) { i ** 2 }) # => 55.0
 ```
 
-#### Long:
-```ruby
-range = 1..5
-
-addends = range.map do |k|
-  k.to_f ** 2
-end
-
-addends.inject(:+) 
-# => 55.0
-```
-
-#### Short:
-```ruby
-(1..5).map { |k| k.to_f ** 2 }.inject(:+) # => 55.0
-```
+**NOTE**: Parentheses and hard brackets are both available
 
 ## √ (sqrt)
+Use `√(num)` to get the square roots of numbers.
+
 ```ruby
-# Use "√(num)" to get the square roots of numbers
 √(4) # => 2.0
 √[144] # => 12.0
 ```
+
+**NOTE**: Parentheses and hard brackets are both available
