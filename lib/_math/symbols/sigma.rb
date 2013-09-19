@@ -11,6 +11,8 @@ module Sigma
   # @return [Numeric,Sigma] if arguments were supplied a numeric value is
   #   returned, otherwise Sigma is returned
   def self.[](*addends)
+    addends.flatten!
+
     if addends.count.eql?(3) && addends.last.kind_of?(Proc)
       addends = (addends[0]..addends[1]).to_a.map do |i|
         addends.last.call(i.to_f)
