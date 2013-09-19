@@ -40,11 +40,11 @@ one argument and returns the result as a numeric class.
 
 ```ruby
 # Clearer for Ruby beginners
-∑(1, 5, Proc.new { |i| i ** 3 }) # => 225.0
-∑(1, 5, lambda { |i| i ** 3 }) # => 225.0
+∑(1, 5, Proc.new { |i| i ** 2 }) # => 55.0
+∑(1, 5, lambda { |i| i ** 2 }) # => 55.0
 
 # Arguably cleaner
-∑(1, 5, ->(i) { i ** 3 }) # => 225.0
+∑(1, 5, ->(i) { i ** 2 }) # => 55.0
 ```
 
 #### Long:
